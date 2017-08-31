@@ -1,0 +1,24 @@
+<div  class="frame" ng-controller="deviceAlarmCtrl">
+	<h2 class="title">设备告警通知策略</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">设备编号</span>
+			<input type="text" class="form-control" ng-model="device.number">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">设备名称</span>
+			<input type="text" class="form-control" ng-model="device.name">
+		</div>
+		<div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+	<div class="btnBox">
+	    <a class="btnIcon btn-add" href ng-click="add()" uib-tooltip="添加"></a>
+	    <a class="btnIcon btn-edit" href ng-click="edit()" uib-tooltip="编辑"></a>
+	    <a class="btnIcon btn-delete" href ng-click="delete()" uib-tooltip="删除"></a>
+	    <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a>
+	    <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+	</div>
+</div>

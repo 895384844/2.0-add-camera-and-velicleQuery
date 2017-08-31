@@ -1,0 +1,55 @@
+<div class="modal fade"> 
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">新增摄像头</h4>
+            </div>
+            <div class="modal-body" style="padding-right: 35px;">
+                <form class="form-horizontal" role="form" name="form">
+                    <div class="form-group relative">
+                        <label class="col-sm-2 control-label">设备地址</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="name" class="form-control" ng-model="name" required >
+                        </div>
+                       <!-- <span class="tips tips-left" ng-show="form.name.$error.required">*</span>-->
+                         <label class="col-sm-2 control-label">设备IP</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="psw" class="form-control" ng-model="ip" required>
+						</div>
+						<!--<span class="tips tips-right-site" ng-show="form.psw.$error.required">*</span>-->
+					</div>
+                   
+                    <div class="form-group relative">
+                        <label class="col-sm-2 control-label" style="padding: 0;">设备端口号</label>
+                        <div class="col-sm-4">
+                            <input type="number" name="name" class="form-control" ng-model="port" required >
+                        </div>
+                        <!--<span class="tips tips-left" ng-show="form.name.$error.required">*</span>-->
+                         <label class="col-sm-2 control-label">车道号</label>
+                        <div class="col-sm-4">
+                            <input type="number" name="psw" class="form-control" ng-model="laneNumber" required>
+						</div>
+						<!--<span class="tips tips-right-site" ng-show="form.psw.$error.required">*</span>-->
+					</div>
+					<div class="form-group relative">
+                        <label class="col-sm-2 control-label" style="padding: 0;">服务器端口号</label>
+                        <div class="col-sm-4">
+                            <input type="number" name="name" class="form-control" ng-model="serverPort" required >
+                        </div>
+                        <!--<span class="tips tips-left" ng-show="form.name.$error.required">*</span>-->
+                        <label class="col-sm-2 control-label" style="padding: 0;">服务器IP</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="name" class="form-control" ng-model="serverIp" required >
+                        </div>
+					</div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-disabled="!form.$valid" ng-click="sure()" class="btn btn-primary" data-dismiss="modal">确定</button>
+                <button type="button" ng-click="clear()" class="btn btn-primary">重置</button>
+                <button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

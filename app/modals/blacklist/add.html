@@ -1,0 +1,45 @@
+<div class="modal fade"> 
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">新增黑名单</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="name" class="form-control" required ng-model="addBlacklist.name">
+                        </div>
+                        <span class="tips" ng-show="form.name.$error.required">*</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">IMEI</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="imei" class="form-control" maxlength="15" minlength="15" ng-maxlength="15" ng-minlength="15"  ng-model="addBlacklist.imei">
+                        </div>
+                        <!--<span class="tips" ng-show="form.imei.$error.required">*</span>-->
+                        <span class="tips tips-right black-tips" ng-show="form.imei.$error.minlength">格式有误</span>
+                        <span class="tips tips-right black-tips" ng-show="form.imei.$error.maxlength">格式有误</span>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">IMSI/MAC</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="imsi" class="form-control" maxlength="15" minlength="15" ng-maxlength="15" ng-minlength="15" required ng-model="addBlacklist.imsi">
+                        </div>
+                        <span class="tips" ng-show="form.imsi.$error.required">*</span>
+                        <span class="tips tips-right black-tips" ng-show="form.imsi.$error.minlength">格式有误</span>
+                        <span class="tips tips-right black-tips" ng-show="form.imsi.$error.maxlength">格式有误</span>
+                    </div>
+                    <!-- <span class="tips" ng-show="atleastOne">IMEI与IMSI/MAC,您至少要选填一个</span> -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-disabled="!form.$valid" ng-click="sure()" class="btn btn-primary" data-dismiss="modal">确定</button>
+                <button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

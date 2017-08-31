@@ -1,0 +1,58 @@
+<div class="modal fade"> 
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">编辑人员</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="name" class="form-control" ng-model="person.name" required >
+                        </div>
+                        <span class="tips" ng-show="form.name.$error.required">*<span class="user-tips">必填</span></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-9" style="padding-top:10px;">
+                            <input type="radio" name="type" value="男" ng-model="person.gender"> 男
+                            <input type="radio" name="type" value="女" ng-model="person.gender"> 女
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">电话号码</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="phone" class="form-control" ng-model="person.phone" ng-minlength="11" ng-maxlength="11" pattern="1[0-9]{10}" required>
+                        </div>
+                        <span class="tips" ng-show="form.phone.$error.required">*<span class="user-tips">必填</span></span>
+                        <span class="tips" ng-show="form.phone.$error.number"><span class="user-tips">格式有误</span></span>
+                        <span class="tips" ng-show="form.phone.$error.minlength"><span class="user-tips">格式有误</span></span>
+                        <span class="tips" ng-show="form.phone.$error.maxlength"><span class="user-tips">格式有误</span></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">电子邮箱</label>
+                        <div class="col-sm-9">
+                            <input type="email" name="email" class="form-control" ng-model="person.mail">
+                        </div>
+                        <span class="tips" ng-show="form.email.$error.email"><span class="user-tips">格式有误</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">身份</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" ng-model="person.type">
+                                <option value="公安干警">公安干警</option>
+                                <option value="设备管理人员">设备管理人员</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-disabled="!form.$valid" ng-click="sure()" class="btn btn-primary" data-dismiss="modal">确定</button>
+                <button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

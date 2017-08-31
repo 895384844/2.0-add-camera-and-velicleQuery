@@ -1,0 +1,16 @@
+<div class="modal">
+	<div class="modal-dialog bigModal">
+		<div class="modal-content">
+			<div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">展示图表</h4>
+            </div>
+            <div class="modal-body">
+                <mw-chart ng-model="echartOptions" style="width: 100%; height:100%;"></mw-chart>
+            </div>
+            <div class="modal-footer">
+            	<button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+		</div>
+	</div>
+</div>

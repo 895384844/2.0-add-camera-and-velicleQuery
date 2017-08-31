@@ -1,0 +1,25 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">添加意见</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">意见</label>
+                        <div class="col-sm-9">
+                            <textarea name="comment" class="form-control" rows="6" ng-maxlength="200" ng-model="comment.body"></textarea>
+                        </div>
+                    </div>
+                    <span class="tips" ng-show="form.comment.$error.maxlength">此处最多可添加200个字</span>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-disabled="!form.$valid" ng-click="sure()" class="btn btn-primary" data-dismiss="modal">确定</button>
+                <button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

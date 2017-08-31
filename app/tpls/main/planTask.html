@@ -1,0 +1,62 @@
+<div ng-controller="planTaskCtrl" class="frame">
+	<h2 class="title">计划任务</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">计划名称</span>
+			<input type="text" class="form-control" ng-model="plan.name">
+		</div>
+		<div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">开始时间</span>
+                        <input type="text" class="form-control" data-ng-model="plan.startDate"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="plan.startDate" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker> 
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+        	<div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">结束时间</span>
+                        <input type="text" class="form-control" data-ng-model="plan.closeDate"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="plan.closeDate" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2', renderOn: 'start-date-changed' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group">
+			<span class="input-group-addon">是否可用</span>
+			<!-- <div class="form-control"><input type="checkbox" ng-model="plan.enable"></div> -->	
+            <select class="form-control" ng-model="plan.enable">
+                <option value="">全部</option>
+                <option value="1">是</option>
+                <option value="0">否</option>
+            </select>
+		</div>
+		<div class="input-group">
+		    <button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+	<div class="btnBox" ng-controller="planTaskModalCtrl">
+	    <a class="btnIcon btn-add" href ng-click="add()" uib-tooltip="添加"></a>
+	    <a class="btnIcon btn-edit" href ng-click="edit()" uib-tooltip="编辑"></a>
+	    <a class="btnIcon btn-delete" href ng-click="delete()" uib-tooltip="删除"></a>
+        <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a>
+        <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+	</div>
+</div>
+	

@@ -1,0 +1,42 @@
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">新增模板</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="form">
+                	<div class="form-group">
+                        <label class="col-sm-2 control-label">模板名称</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="name" class="form-control" ng-model="mesTel.templateName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">模板类型</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" ng-model="mesTel.type">
+                                <option value="0">目标告警模板</option>
+                                <option value="1">设备告警模板</option>
+                                <!-- <option value="2">异地告警模板</option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">模板内容</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" name="templateString" rows="3" ng-model="mesTel.templateString" required></textarea>
+                        </div>
+                        <span class="tips" ng-show="form.templateString.$error.required">*</span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-disabled="!form.$valid" ng-click="sure()" class="btn btn-primary" data-dismiss="modal">确定</button>
+                <button type="button" ng-click="clear()" class="btn btn-primary">重置</button>
+                <button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+		</div>
+	</div>
+</div>

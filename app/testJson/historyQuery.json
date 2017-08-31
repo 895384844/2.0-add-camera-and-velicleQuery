@@ -1,0 +1,40 @@
+{
+    "rows" : [
+	    {
+	    "name": "TD-LTE-B38",
+	    "number": "SPR38",
+	    "address": "闵行区派拉蒙",
+	    "time": "2017-01-04 23:51:29",
+	    "imei": "",
+	    "imsi": "460007244123241",
+	    "phone": "1391724",
+	    "location": "上海",
+	    "netType": "LTE",
+	    "netWorkProvider": "移动"
+	    },
+	    {
+	    "name": "TD-LTE-B38",
+	    "number": "SPR38",
+	    "address": "闵行区派拉蒙",
+	    "time": "2017-01-04 23:51:29",
+	    "imei": "",
+	    "imsi": "460007244123241",
+	    "phone": "1391724",
+	    "location": "上海",
+	    "netType": "LTE",
+	    "netWorkProvider": "移动"
+	    },
+	    {
+	    "name": "TD-LTE-B38",
+	    "number": "SPR38",
+	    "address": "闵行区派拉蒙",
+	    "time": "2017-01-04 23:51:29",
+	    "imei": "",
+	    "imsi": "460007244123241",
+	    "phone": "1391724",
+	    "location": "上海",
+	    "netType": "LTE",
+	    "netWorkProvider": "移动"
+	    }
+    ]
+}

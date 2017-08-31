@@ -1,0 +1,91 @@
+<div class="frame" ng-controller="accompanyAnalysisCtrl">
+	<h2 class="title">伴随分析</h2>
+	<form class="form form-inline" role="form" name="form" height-bind=".grid">
+		<div class="row">   
+			<div class="col-lg-12">
+				<div class="inf_box">
+						<div class="radio" style="margin-bottom: 8px;margin-right: 10px">
+							<label><input type="radio" name="atype" value="known" ng-model="accompany.atype" ng-checked="known">已知轨迹</label>
+							<label style="margin-left: 5px"><input type="radio" name="atype" ng-checked="unknown" value="unknown" ng-model="accompany.atype">未知轨迹</label>
+						</div>
+
+						<div class="input-group">
+							<button class="btn btn-primary" ng-click="search()" ng-disabled="(conditionArray.length<1&&accompany.atype=='known')||!form.$valid">
+								<span class="glyphicon glyphicon-search"></span>
+								查询
+							</button>
+								&nbsp;
+							<button ng-if="accompany.atype=='known'" class="btn btn-primary" ng-click="showCondition()">
+								<span class="glyphicon glyphicon-plus"></span>
+								伴随条件
+							</button>
+						</div>
+				</div>
+				
+				<div class="inf_box">
+						<div class="input-group" style="width: 230px;margin-right:0px">
+							<span class="input-group-addon">类型</span>
+							<div class="form-control">			    
+							    <input type="radio"  name="known" value="imsi" ng-model="accompany.type" ng-checked="true"  required> IMSI
+				                <input type="radio"  name="known" value="imei" ng-model="accompany.type"> IMEI
+							</div>
+						</div>
+						<div class="input-group import" style="width: 200px; ">
+							<input type="text" class="form-control" ng-model="accompany.serialNumber" name="value" required maxlength="15">
+							<span class="input-group-addon">必填*</span>
+						</div>
+						<div class="input-group data" ng-if="accompany.atype=='unknown'" style="width: 248px">
+				            <div class="dropdown">
+				                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+				                    <div class="input-group">
+				                        <span class="input-group-addon">时间从</span>
+				                        <input type="text" class="form-control" data-ng-model="accompany.startTime"
+				                                   data-date-time-input="YYYY-MM-DD HH:mm" required>
+				                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar text-info"></i></span>
+				                    </div>
+				                </span>
+				                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				                    <datetimepicker data-ng-model="accompany.startTime"
+				                    	data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"
+				                    ></datetimepicker>
+				                </ul>
+				            </div>
+				        </div>
+				        
+						<div class="input-group data" ng-if="accompany.atype=='unknown'" style="width: 248px">
+				        	<div class="dropdown">
+				                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+				                    <div class="input-group">
+				                        <span class="input-group-addon">到</span>
+				                        <input type="text" class="form-control" data-ng-model="accompany.endTime"
+				                                   data-date-time-input="YYYY-MM-DD HH:mm" required>
+				                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar text-info"></i></span>
+				                    </div>
+				                </span>
+				                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				                    <datetimepicker data-ng-model="accompany.endTime"  
+				                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"
+				                       "></datetimepicker>
+				                </ul>
+				            </div>
+				      </div>
+					<div class="condition-group" ng-if="accompany.atype=='known'">
+			            <div class="condition" ng-repeat="conditionItem in conditionArray">
+			                <span class="glyphicon glyphicon-remove text-primary" ng-click="removeCondition($index)"></span>
+			                <div class="textOverflow" title={{conditionItem.groupName}}>组名	:{{conditionItem.groupName}}</div>
+			                <div>开始:{{conditionItem.startTime | date:'yyyy-MM-dd HH:mm'}} </div>
+			                <div>结束:{{conditionItem.endTime | date:'yyyy-MM-dd HH:mm'}}</div>
+			            </div>
+			        </div> 
+					
+				</div>	
+			</div>
+		</div>
+	</form>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height style="overflow-y: auto;" ></div>
+	<div class="btnBox">
+	    <!--<a class="btnIcon btn-refresh" href uib-tooltip="刷新" ng-click="search()"></a>-->
+	</div>
+	<span us-spinner spinner-key="spinner-1" class="loadingAnimate"></span>
+</div>
+

@@ -1,0 +1,14 @@
+{
+  "name": "ng-file-upload",
+  "homepage": "https://github.com/danialfarid/ng-file-upload",
+  "version": "12.0.4",
+  "_release": "12.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "12.0.4",
+    "commit": "07cd7a68f001cb2f8aa7078d4db51a41824875f0"
+  },
+  "_source": "https://github.com/danialfarid/ng-file-upload.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/danialfarid/ng-file-upload.git"
+}

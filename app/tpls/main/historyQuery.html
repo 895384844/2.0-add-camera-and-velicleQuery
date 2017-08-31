@@ -1,0 +1,66 @@
+<div  class="frame" ng-controller="historyQueryCtrl">
+	<h2 class="title">综合查询</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">组名称</span>
+			<select class="form-control pd-right" ng-model="history.groupId">
+				<option value="">请选择</option>
+			    <option ng-repeat="group in groupArray" value="{{group.groupId}}">{{group.groupName}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">IMEI</span>
+			<input type="text" class="form-control" maxlength="15" ng-model="history.imei">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">IMSI</span>
+			<input type="text" class="form-control" maxlength="15" ng-model="history.imsi">
+		</div>
+		<div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">时间范围</span>
+                        <input type="text" class="form-control" data-ng-model="history.startTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="history.startTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+        	<div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">至</span>
+                        <input type="text" class="form-control" data-ng-model="history.endTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="history.endTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2', renderOn: 'start-date-changed' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group">
+        	<span class="input-group-addon">手机号码</span>
+			<input type="text" class="form-control" placeholder="请输入手机号前七位" ng-model="history.phoneNumPrifix">
+        </div>
+        <div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+    <div class="btnBox">
+        <!--<a class="btnIcon btn-refresh" href uib-tooltip="刷新" ng-click="search()"></a>-->
+        <a class="btnIcon btn-export" href uib-tooltip="导出" ng-click="export()"></a>
+        <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+    </div>
+    <span us-spinner spinner-key="spinner-1" class="loadingAnimate"></span>
+</div>

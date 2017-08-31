@@ -1,0 +1,42 @@
+<div class="home" ng-controller="homeCtrl">
+	<!-- <h2 class="title">主页</h2> -->
+	<h2 class="title">系统信息</h2>
+	<div class="col-lg-6">
+		<div class="homeBox">
+			<mw-chart class="col-lg-12 chart" ng-model="optionRam"></mw-chart>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="homeBox" style="margin-right:15px;">
+			<mw-chart class="col-lg-12 chart" ng-model="optionCpu"></mw-chart>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="homeBox">
+		    <h4>硬盘监控信息</h4>
+			<div class="progressBox" ng-repeat="progress in progressArray">
+				<div class="progressName">{{progress.name}}：</div>
+				<uib-progressbar class="progress-striped" value="progress.value" type="{{progress.type}}">{{progress.value}}%</uib-progressbar>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="homeBox" style="margin-right:15px;">
+			<h4>服务状态信息</h4>
+			<div class="row statusBox text-center" ng-repeat="statu in statusArry">
+				<div >
+					<div class="cb {{statu.background}}">
+						<span class="glyphicon {{statu.icon}}"></span>
+						{{statu.text}}
+				    </div>
+			    </div>
+			    <div >
+					<span class="statusName">{{statu.name}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-12" style="margin-top: 15px;" >
+	    <div ui-grid="gridOptions" ui-grid-resize-columns ui-grid-move-columns></div>
+	</div>	
+</div>

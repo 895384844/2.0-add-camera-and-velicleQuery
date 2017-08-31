@@ -1,0 +1,28 @@
+<div  class="frame" ng-controller="personManageCtrl">
+	<h2 class="title">人员管理</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">人员名称</span>
+			<input type="text" class="form-control" ng-model="select.name">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">电话号码</span>
+			<input type="text" class="form-control" ng-model="select.phone">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">电子邮箱</span>
+			<input type="text" class="form-control" ng-model="select.mail">
+		</div>
+		<div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+	<div class="btnBox">
+	    <a class="btnIcon btn-add" href ng-click="add()" uib-tooltip="添加"></a>
+	    <a class="btnIcon btn-edit" href ng-click="edit()" uib-tooltip="编辑"></a>
+	    <a class="btnIcon btn-delete" href ng-click="delete()" uib-tooltip="删除"></a>
+	    <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a>
+	    <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+	</div>
+</div>

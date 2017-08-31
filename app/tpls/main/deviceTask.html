@@ -1,0 +1,95 @@
+<div ng-controller="deviceTaskCtrl" class="frame">
+	<h2 class="title">设备任务</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">任务名称</span>
+			<input type="text" class="form-control" ng-model="task.name">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">操作类型</span>
+			<select class="form-control" ng-model="task.type">
+				<option value="">全部</option>
+			    <option value="0">启动捕获程序</option>
+			    <option value="2">重启捕获程序</option>
+			    <option value="1">关闭捕获程序</option>
+			    <option value="3">重启设备系统</option>
+			    <option value="8">同步设备时钟</option>
+			    <option value="4">扫描频点</option>
+			    <option value="5">实时告警查询</option>
+			    <option value="100">小区信息查询</option>
+			    <option value="101">小区信息设置</option>
+			    <option value="13">功率获取</option>
+			    <option value="12">功率设置</option>
+			    <option value="18">使用周期获取</option>
+			    <option value="17">使用周期设置</option>
+			    <option value="15">UDP端口获取</option>
+			    <option value="14">UDP端口设置</option>
+			    <option value="19">设备IP设置</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">设备名称</span>
+			<select class="form-control" ng-model="task.device" style="padding-right: 16px;">
+				<option value="">全部</option>
+				<option ng-repeat="device in deviceArray" value="{{device.identity}}">{{device.name}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">计划名称</span>
+			<select class="form-control" ng-model="task.plan">
+				<option value="">全部</option>
+				<option value="0">无</option>
+				<option ng-repeat="plan in planArray" value="{{plan.id}}">{{plan.name}}</option>
+			</select>
+		</div>
+		<div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">开始时间</span>
+                        <input type="text" class="form-control" data-ng-model="task.startTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="task.startTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+        	<div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">结束时间</span>
+                        <input type="text" class="form-control" data-ng-model="task.endTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="task.endTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2', renderOn: 'start-date-changed' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group">
+			<span class="input-group-addon">是否立即执行</span>
+			<select class="form-control" ng-model="task.enable">
+				<option value="">全部</option>
+				<option value="1">是</option>
+				<option value="0">否</option>
+		    </select>	
+		</div>
+		<div class="input-group">
+		    <button class="btn btn-primary" ng-click="searchResult()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+	<div class="btnBox">
+		<a class="btnIcon btn-delete" href ng-click="delete()" uib-tooltip="删除"></a>
+		<a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a>
+		<a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+	</div> 
+</div>

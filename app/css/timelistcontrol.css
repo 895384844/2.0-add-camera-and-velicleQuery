@@ -1,0 +1,66 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.timelist-box{
+	width: 206px;
+	max-height: 305px;
+	background: #e2e2e2;
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+}
+.timelist-top{
+	width: 206px;
+	height: 40px;
+	background: #438eb9;
+}
+.timelist-left-info span{
+	float: left;
+	font-size: 14px;
+	color: white;
+	line-height: 40px;
+	margin-left: 16px;
+}
+.timelist-right-icon span{
+    float: right;
+    color: white;
+    font-size: 14px;
+    line-height: 40px;
+    margin-right: 14px;
+}
+.timelist-content{
+	width: 206px;
+	max-height: 264px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.timelist-content .timelist-group{
+	width: 202px;
+	height: 70px;
+	background: white;
+	margin-left: 3px;
+	right: 0;
+	box-shadow: -3px 0px 0px #438EB9, 0px 1px 0px #b6bfc4 ;
+	font-size: 12px;
+	cursor: pointer;
+	line-height: 20px;
+}
+.timelist-mg-5{
+	margin-top: 5px;
+}
+.timelist-mg-11{
+	margin-top: 5px;
+}
+.timelist-content-left{
+	float: left;
+	margin-left: 10px;
+}
+.timelist-content-right{
+	float: left;
+	margin-left: 10px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 135px;
+}

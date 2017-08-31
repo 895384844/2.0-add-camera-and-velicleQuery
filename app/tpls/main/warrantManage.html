@@ -1,0 +1,47 @@
+<div class="frame" ng-controller="warrantManageCtrl">
+	<h2 class="title">授权管理</h2>
+	<div class="form form-inline">
+		<!--<div class="input-group">
+			<span class="input-group-addon">客户ID</span>
+			<input type="text" class="form-control" ng-model="power.id">
+		</div>-->
+		<div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">授权开始</span>
+                        <input type="text" class="form-control" data-ng-model="data.dateDropDownInputStart"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="data.dateDropDownInputStart" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">授权结束</span>
+                        <input type="text" class="form-control" data-ng-model="data.dateDropDownInputEnd"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="data.dateDropDownInputEnd" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2', renderOn: 'start-date-changed' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button>
+		    <!-- <button class="btn btn-info" ng-click="clear()">重置</button> -->
+		    <button class="btn btn-info" ng-click="import()">导入</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+</div>

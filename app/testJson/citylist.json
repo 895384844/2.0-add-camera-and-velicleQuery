@@ -1,0 +1,157 @@
+[
+    {
+        "name": "北京",
+        "pid": 11,
+        "sname":"beijing"
+    },
+    {
+        "name": "天津",
+        "pid": 12,
+        "sname":"tianjin"
+    },
+    {
+        "name": "上海",
+        "pid": 31,
+        "sname":"shanghai"
+    },
+    {
+        "name": "重庆",
+        "pid": 50,
+        "sname":"chongqing"
+    },
+    {
+        "name": "河北",
+        "pid": 13,
+        "sname":"hebei"
+    },
+    {
+        "name": "山西",
+        "pid": 14,
+        "sname":"shanxi"
+    },
+    {
+        "name": "内蒙古",
+        "pid": 15,
+        "sname":"neimenggu"
+    },
+    {
+        "name": "辽宁",
+        "pid": 21,
+        "sname":"liaoning"
+    },
+    {
+        "name": "吉林",
+        "pid": 22,
+        "sname":"jilin"
+    },
+    {
+        "name": "黑龙江",
+        "pid": 23,
+        "sname":"heilongjiang"
+    },
+    {
+        "name": "江苏",
+        "pid": 32,
+        "sname":"jiangsu"
+    },
+    {
+        "name": "浙江",
+        "pid": 33,
+        "sname":"zhejiang"
+    },
+    {
+        "name": "安徽",
+        "pid": 34,
+        "sname":"anhui"
+    },
+    {
+        "name": "福建",
+        "pid": 35,
+        "sname":"fujian"
+    },
+    {
+        "name": "江西",
+        "pid": 36,
+        "sname":"jiangxi"
+    },
+    {
+        "name": "山东",
+        "pid": 37,
+        "sname":"shandong"
+    },
+    {
+        "name": "河南",
+        "pid": 41,
+        "sname":"henan"
+    },
+    {
+        "name": "湖北",
+        "pid": 42,
+        "sname":"hubei"
+    },
+    {
+        "name": "湖南",
+        "pid": 43,
+        "sname":"hunan"
+    },
+    {
+        "name": "广东",
+        "pid": 44,
+        "sname":"guangdong"
+    },
+    {
+        "name": "广西",
+        "pid": 45,
+        "sname":"guangxi"
+    },
+    {
+        "name": "海南",
+        "pid": 46,
+        "sname":"hainan"
+    },
+    {
+        "name": "四川",
+        "pid": 51,
+        "sname":"sichuan"
+    },
+    {
+        "name": "贵州",
+        "pid": 52,
+        "sname":"guizhou"
+    },
+    {
+        "name": "云南",
+        "pid": 53,
+        "sname":"yunnan"
+    },
+    {
+        "name": "西藏",
+        "pid": 54,
+        "sname":"xizang"
+    },
+    {
+        "name": "陕西",
+        "pid": 61,
+        "sname":"shanxi1"
+    },
+    {
+        "name": "甘肃",
+        "pid": 62,
+        "sname":"gansu"
+    },
+    {
+        "name": "青海",
+        "pid": 63,
+        "sname":"qinghai"
+    },
+    {
+        "name": "宁夏",
+        "pid": 64,
+        "sname":"ningxia"
+    },
+    {
+        "name": "新疆",
+        "pid": 65,
+        "sname":"xinjiang"
+    }
+]

@@ -1,0 +1,96 @@
+<div  class="frame" ng-controller="deviceAlarmLogCtrl">
+	<h2 class="title">设备告警</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">设备名称</span>
+			<select class="form-control" ng-model="deviceAlarm.device">
+				 <option value="">全部</option>
+			     <option ng-repeat="device in deviceArray" value="{{device.identity}}">{{device.name}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">告警级别</span>
+			<select class="form-control" ng-model="deviceAlarm.level"> 
+			    <option value="4">严重告警</option>
+			    <option value="3">重要告警</option>
+			    <option value="2">次要告警</option>
+			    <option value="1">一般告警</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">告警原因</span>
+			<select class="form-control" ng-model="deviceAlarm.cause">
+				<option value="">全部</option>
+			    <option>设备不在线</option>
+			    <option>长时间不上号</option>
+			</select>
+		</div>
+		<!--<div class="input-group data">
+             <div class="input-group">
+                <span class="input-group-addon">时间范围</span>
+                <input type="text" class="form-control" ng-date-time-selector="start" ng-date-time-format="Y-m-d H:i" ng-model="deviceAlarm.startTime">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+             </div>
+        </div>
+        <div class="input-group data">
+            <div class="input-group">
+                <span class="input-group-addon">至</span>
+                <input type="text" class="form-control" ng-date-time-selector="start" ng-date-time-format="Y-m-d H:i" ng-model="deviceAlarm.endTime">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+        </div>-->
+        
+        <div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">时间范围</span>
+                        <input type="text" class="form-control" data-ng-model="deviceAlarm.startTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="deviceAlarm.startTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+        	<div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">至</span>
+                        <input type="text" class="form-control" data-ng-model="deviceAlarm.endTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="deviceAlarm.endTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2', renderOn: 'start-date-changed' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group">
+			<span class="input-group-addon">处理状态</span>
+			<select class="form-control" ng-model="deviceAlarm.statue">
+			    <option value="">全部</option>
+			    <option value="1">已处理</option>
+			    <option value="0">未处理</option>
+			</select>
+		</div>
+        <div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+
+	<div class="btnBox">
+	    <a class="btnIcon btn-opinion" href uib-tooltip="添加意见" ng-click="addComment()"></a>
+	    <!--<a class="btnIcon btn-refresh" href uib-tooltip="刷新"></a>-->
+	    <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a>
+	    <a class="btnIcon btn-download" href ng-click="downLoad()" uib-tooltip="下载"></a>
+	</div>
+</div>

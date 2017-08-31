@@ -1,0 +1,37 @@
+<div ng-controller="mapSetCtrl">
+	<div class="form-group">
+		<label class="col-lg-3 col-lg-offset-3 control-label">
+			<span>离线</span> <input type="radio" name="line" id="offline"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<span>在线</span> <input type="radio" name="line" id="online"/> 
+		</label>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-3 col-lg-offset-1 control-label">中心点</label>
+		<div class="col-lg-2 col-md-6">
+	      <input type="text" class="form-control" ng-model="map.map_center_lon" placeholder="经度">
+	    </div>
+	    <div class="col-lg-2 col-md-6">
+	      <input type="text" class="form-control" ng-model="map.map_center_lat" placeholder="纬度">
+	    </div>
+	</div>
+	<!--<div class="form-group">
+		<label class="col-lg-3 col-lg-offset-1 control-label">缩放等级范围</label>
+		<div class="col-lg-2 col-md-6">
+	      <input type="text" class="form-control" ng-model="map.map_focus_min" placeholder="最小"/>
+	    </div>
+	    <div class="col-lg-2 col-md-6">
+	      <input type="text" class="form-control" ng-model="map.map_focus_max" placeholder="最大">
+		</div>
+	</div>-->
+	<div class="form-group">
+		<label class="col-lg-3 col-lg-offset-1 control-label">默认缩放等级</label>
+		<div class="col-lg-2 col-md-6">
+	      <input type="text" class="form-control" ng-model="map.map_focus_default" placeholder="默认"/>
+	  	</div>
+	</div>
+	<div class="form-group">
+	    <div class="col-lg-1 col-lg-offset-5 text-left" style="margin-left: 45%;">
+	      <button class="btn btn-primary" ng-click="sure()">保存</button>
+	    </div>
+	</div>
+</div>

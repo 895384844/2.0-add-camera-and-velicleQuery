@@ -1,0 +1,89 @@
+<div id="domain" ng-controller="domainCtrl" class="frame">
+	<h2 class="title" style="position:absolute; width:100%">管理域</h2>
+	<div class="col-lg-6 domainBox">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				选择管理域操作
+			</div>
+			<div class="panel-body">
+			    <p>
+			    	<button class="btn btn-primary" ng-click="domainAdd()">添加</button> 
+			    	<button class="btn btn-info" ng-click="domainEdit()">编辑</button>
+			    	<button class="btn btn-danger" ng-click="domainDelete()">删除</button>
+			    </p>
+				<div
+				    class="tree"
+			        data-angular-treeview="true"
+			        data-tree-id="mytree"
+			        data-tree-model="roleList"
+			        data-node-id="sid"
+			        data-node-label="sname"
+			        data-node-children="children" >
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6 domainBox">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				管理域编辑
+			</div>
+			<div class="panel-body">
+			    <form class="form-horizontal" role="form" name="formAdd" ng-show="addShow">
+			    	<div class="form-group">
+					    <label class="col-lg-3 control-label">父管理域：</label>
+					    <div class="col-lg-8">
+					      <input type="text" class="form-control" ng-model="mytree.currentNode.sname" disabled>
+					    </div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">子管理域：</label>
+						<div class="col-lg-8">
+							<input type="text" name="name" class="form-control" ng-model="node.name" required>
+						</div>
+						<span class="tips" ng-show="formAdd.name.$error.required">*</span>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">描述：</label>
+						<div class="col-lg-8">
+							<textarea class="form-control" rows="3" ng-model="node.desc"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+					    <label class="col-lg-3 control-label">隐藏：</label>
+						<div class="col-lg-8">
+					        <input type="checkbox" class="form-control" ng-model="node.seeableAdd">
+					    </div>
+					</div>
+					<div class="pull-right">
+						<button class="btn btn-primary" ng-disabled="!formAdd.$valid" ng-click="addAction()">确定</button>
+					</div>
+			    </form>
+				<form class="form-horizontal" role="form" name="formEdit" ng-show="editShow">
+					<div class="form-group">
+						<label class="col-lg-3 control-label">名称：</label>
+						<div class="col-lg-8">
+							<input type="text" name="name" class="form-control" ng-model="mytree.currentNode.sname" required>
+						</div>
+						<span class="tips" ng-show="formEdit.name.$error.required">*</span>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">描述：</label>
+						<div class="col-lg-8">
+							<textarea class="form-control" rows="3" ng-model="mytree.currentNode.desc"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+					    <label class="col-lg-3 control-label">隐藏：</label>
+						<div class="col-lg-8">
+					        <input type="checkbox" class="form-control" ng-model="node.seeableEdit">
+					    </div>
+					</div>
+					<div class="pull-right">
+						<button class="btn btn-primary" ng-disabled="!formEdit.$valid" ng-click="editAction()">确定</button> 
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

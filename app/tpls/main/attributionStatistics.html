@@ -1,0 +1,85 @@
+<div ng-controller="attributionStatisticsCtrl" style="height: 100%;">
+	<h2 class="title">
+        归属地统计
+    </h2>
+	<div style="display: -webkit-flex; height:93%; overflow: hidden;">
+		<div style="width: 25%; display: -webkit-flex; height: 100%;">
+			<div style="-webkit-flex: 1; width: 90%;">
+				<div style="width: 100%; height: 85.3%; border: 1px solid #ccc; margin: 10px 10px 6px 10px; padding: 10px;">
+					<div class="row" style="width: 100%;margin-left: 0;">
+						<div>
+							<div>
+
+								<div style="height: 6px;"></div>
+								<select class="form-control" ng-change="changeMapType()" style="width: 100%;" ng-model="query.province" ng-options="s.name for s in citylist">
+									<option value="">
+										全 国
+									</option>
+								</select>
+								<div style="height: 6px;"></div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="input-group data" style="width: 100%;">
+							<div class="dropdown">
+								<span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+			                    <div class="input-group" style="width: 100%;">
+			                        <span class="input-group-addon">开始时间</span>
+								<input type="text" class="form-control" style="width: 100%;" data-ng-model="query.startTime" data-date-time-input="YYYY-MM-DD HH:mm" required>
+								<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+							</span>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<datetimepicker data-ng-model="query.startTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="input-group data" style="width: 100%;">
+						<div class="dropdown">
+							<span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+			                    <div class="input-group" style="margin-top: 6px; width: 100%;">
+			                        <span class="input-group-addon">结束时间</span>
+							<input type="text" class="form-control" style="width: 100%;" data-ng-model="query.endTime" data-date-time-input="YYYY-MM-DD HH:mm" required>
+							<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+						</div>
+						</span>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<datetimepicker data-ng-model="query.endTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div style="height: 6px;width: 100%;"></div>
+			<div class="input-group">
+				<select class="form-control pd-right" ng-model="selectGroup" required="true" ng-options="ga as ga.groupName for ga in groupArray">
+					<option value="">
+						请选择添加设备组
+					</option>
+				</select>
+				<span class="input-group-addon btn btn-primary" ng-click="addGroup(selectGroup)">
+	                			<span class="glyphicon glyphicon-plus"></span>
+				</span>
+			</div>
+			<div ng-repeat="deviceGroup in query.groups" class="alert alert-info" style="width: 100%; padding: 5px; margin-top: 5px;margin-bottom: 5px">
+				<span class="glyphicon glyphicon-remove text-default" ng-click="removeGroup(deviceGroup)"></span> {{deviceGroup.groupName}}
+			</div>
+		</div>
+		<div class="row" style="width:100%; height:6%; background:#fff; margin-left: 10px;">
+			<button class="btn btn-primary" style="width: 100%; height: 100%;" ng-click="search()">
+	                                            生成报表
+                <span class="glyphicon glyphicon-signal"></span>
+             </button>
+		</div>
+	</div>
+</div>
+
+<div style="-webkit-flex:1;height: 93%;">
+	<div style="height: 100%; border:1px solid #ccc; margin: 10px 10px 10px 15px">
+		<mw-chart ng-model="echartOptions" style="width: 100%; height:100%;"></mw-chart>
+	</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,101 @@
+<div class="modal fade"> 
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">编辑设备</h4>
+            </div>
+            <div class="modal-body" style="padding-right: 35px;">
+                <form class="form-horizontal" role="form" name="form">
+                    <div class="form-group relative">
+                        <label class="col-sm-2 control-label">设备名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="name" class="form-control" required ng-model="device.name" >
+                        </div>
+                        <span class="tips1" ng-show="form.name.$error.required">*</span>
+                    </div>
+                    <!--<div class="form-group relative">
+                        <label class="col-sm-2 control-label">设备编号</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="number" class="form-control" ng-model="device.number" required>
+                        </div>
+                        <span class="tips1" ng-show="form.number.$error.required">*</span>
+                    </div>-->
+                    <div class="form-group relative">
+                    	<label class="col-sm-2 control-label">上网卡号</label>
+                    	<div class="col-sm-10">
+                    		<input type="text" class="form-control" ng-model="device.numberNetCart">
+                    	</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">设备类型</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" ng-model="device.modelId" name="type" required>
+                                <option ng-repeat="type in typeList" value="{{type.id}}">{{type.name}}</option>
+                            </select>
+                        </div>
+                        <span class="tips" ng-show="form.type.$error.required">*</span>
+                    </div>
+                    <div class="form-group relative">
+                        <label class="col-sm-2 control-label">设备地址</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="address" class="form-control" ng-model="device.address" required>
+                        </div>
+                        <span class="tips1" ng-show="form.address.$error.required">*</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">设备描述</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="device.memo">
+                        </div>
+                    </div>
+                    <div class="form-group data">
+                        <label class="col-sm-2 control-label">管理域</label>
+                        <div class="col-sm-4">
+                            <input type="text" ng-model="device.scopeName" name="scopeName" class="form-control meBg dropdown-toggle" data-toggle="dropdown" required>
+                            <ul class="dropdown-menu pull-right treeBox" >
+                                <div class="tree" data-angular-treeview="true" data-tree-id="editTree" data-tree-model="domainList" data-node-id="sid" data-node-label="sname" data-node-children="children" ></div>
+                            </ul>
+                        </div>
+                        <span class="tips" ng-show="form.scopeName.$error.required">*</span>
+                        <label class="col-sm-2 control-label">组编号</label>
+                        <div class="col-sm-4">
+                            <input type="number" name="groupId" ng-model="device.groupId" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group relative">
+                        <label class="col-sm-2 control-label">设备经度</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="longitude" class="form-control" ng-model="device.longitude" required>
+                        </div>
+                        <span class="tips tips-left" ng-show="form.longitude.$error.required">*</span>
+                        <label class="col-sm-2 control-label">设备纬度</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="latitude" class="form-control" ng-model="device.latitude" required >
+                        </div>
+                        <span class="tips tips-right" ng-show="form.latitude.$error.required">*</span>
+                    </div>
+	                   
+                    <div class="form-group relative">
+                        <label class="col-sm-2 control-label">设备IP</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" ng-model="device.ip">
+                        </div>
+                        <label class="col-sm-2 control-label">端口</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="port" class="form-control" ng-model="device.udpPortNumber">
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            
+            <div class="modal-footer" style="clear: both;">
+                <button type="button" ng-disabled="!form.$valid" ng-click="sure()" class="btn btn-primary" data-dismiss="modal">确定</button>
+                <button type="button" ng-click="clear()" class="btn btn-primary">重置</button>
+                <button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

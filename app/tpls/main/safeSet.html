@@ -1,0 +1,62 @@
+<div ng-controller="safeSetCtrl" style="max-height: 400px; overflow:auto">
+
+		<div class="form-group safeSet">
+		    <label class="col-lg-3  control-label">密码特殊字符个数</label>
+		    <div class="col-lg-3 ">
+		      <input type="text" class="form-control" ng-model="safe.password_spe_charnum">
+		    </div>
+		    <label class="col-lg-3  control-label">session超时时间</label>
+		    <div class="col-lg-3">
+		      <input type="text" class="form-control" ng-model="safe.session_outime">
+		    </div>
+		</div>
+
+	<div class="form-group safeSet">
+	    <label class="col-lg-3 control-label">账户解锁时间</label>
+	    <div class="col-lg-3">
+	      <input type="text" class="form-control" ng-model="safe.account_lock_time">
+	    </div>
+	     <label class="col-lg-3 control-label">密码最小长度</label>
+	    <div class="col-lg-3">
+	      <input type="text" class="form-control" ng-model="safe.password_min_len">
+	    </div>
+	</div>
+	
+	<div class="form-group safeSet">
+	    <label class="col-lg-3 control-label">密码小写字母个数</label>
+	    <div class="col-lg-3">
+	      <input type="text" class="form-control" ng-model="safe.password_lower_num">
+	    </div>
+	    <label class="col-lg-3 control-label">密码重试次数</label>
+	    <div class="col-lg-3">
+	      <input type="text" class="form-control" ng-model="safe.password_retry_times">
+	    </div>
+	</div>
+	
+	<div class="form-group safeSet">
+	    <label class="col-lg-3 control-label">账户最小长度</label>
+	    <div class="col-lg-3">
+	      <input type="text" class="form-control" ng-model="safe.account_min_len">
+	    </div>
+	    <label class="col-lg-3 control-label">密码数字个数</label>
+	    <div class="col-lg-3">
+	      <input type="text" class="form-control" ng-model="safe.password_digital_num">
+	    </div>
+	</div>
+	
+	<div class="form-group safeSet">
+	    <label class="col-lg-3 control-label">密码大写字母个数</label>
+	    <div class="col-lg-3">
+	      <input type="text" class="form-control" ng-model="safe.password_upper_num">
+	    </div>
+	    <label class="col-lg-3 control-label">未处理告警时间间隔</label>
+	    <div class="col-lg-3">
+	      <input type="text" class="form-control" ng-model="safe.unconfirm_device_alarm_interval">
+	    </div>
+	</div>
+	<div class="form-group">
+	    <div class="col-lg-6 text-right">
+	      <button class="btn btn-primary" ng-click="sure()">确定</button>
+	    </div>
+	</div>
+</div>

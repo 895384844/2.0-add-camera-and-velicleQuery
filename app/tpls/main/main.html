@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row" id="header" ng-controller="mainCtrl">
+    	<div class="logo">
+    	    <a ui-sref="main">
+    	    	<img src="images/logo.png">
+    	    </a>
+		</div>
+		<div class="infobox text-right">
+			<div class="user" uib-dropdown>
+				<span uib-dropdown-toggle>
+					欢迎你：{{showUser}}
+					<b class="caret"></b>
+				</span>
+				<ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+					<li><a class="pd-spacing" href="" ng-click="updatePsw()">修改密码</a></li>
+					<li class="divider"></li>
+					<li><a class="pd-spacing" href="" ng-click="logout()">安全退出</a></li>
+					<li class="divider"></li>
+					<li><a class="pd-spacing" href="" ng-click="about()">关于我们</a></li>
+				</ul>
+			</div>
+			<div class="alarm" ng-hide="hiddenAlarmInfo.deviceAlarmHidden">
+				设备告警：
+				<a class="bellBlock" ui-sref="main.page({type:'deviceAlarmLog',level:'4'})">
+					<span class="alarmNum bg-danger">{{alarm.levelFour}}</span>
+				</a>
+				<a class="bellBlock" ui-sref="main.page({type:'deviceAlarmLog',level:'3'})">
+					<span class="alarmNum bg-warning">{{alarm.levelThree}}</span>
+				</a>
+				<a class="bellBlock" ui-sref="main.page({type:'deviceAlarmLog',level:'2'})">
+					<span class="alarmNum bg-info">{{alarm.levelTow}}</span>
+				</a>
+				<a class="bellBlock" ui-sref="main.page({type:'deviceAlarmLog',level:'1'})">
+					<span class="alarmNum bg-success">{{alarm.levelOne}}</span>
+				</a>
+			</div>
+			<div class="alarm-black" ng-hide="hiddenAlarmInfo.blacklistHidden">
+			    黑名单告警：
+				<a class="bellBlock" ui-sref="main.page({type:'blackListLog',statue:'0'})">
+					<span class="alarmNum bg-danger">{{blackNum}}</span>
+				</a>
+			</div>
+		</div>
+    </div>	
+</div>
+<div class="content">
+	<div id="sidebar" ng-controller="sidebarCtrl">
+	    <div class="homePage" ng-repeat="mainItem in mainArray">
+	    	<img class="ng-scope" src="images/{{mainItem.aicon}}.png">
+	    	<a ui-sref="{{mainItem.url}}">{{mainItem.name}}</a>
+	    </div>
+		<uib-accordion>
+		    <div uib-accordion-group is-open="status.open" ng-repeat="item in groups">
+		    	<uib-accordion-heading>
+		    	    <img src="images/{{item.aicon}}.png">
+		    	    {{item.name}}
+		    	    <i class="pull-right glyphicon glyphicon-chevron-down"></i>
+		    	</uib-accordion-heading>
+		    	<div class="subMenu" ng-repeat="subItem in item.subMenu">
+		    	    <span ui-sref-active="active">
+		    	    	<a ui-sref="{{subItem.url}}" ng-class="{active: status}">{{subItem.text}}</a>
+		    	    </span>
+				</div>
+		    </div>
+		</uib-accordion>
+	</div>
+	<div class="page" ui-view="page"></div>
+</div>
+<div class="footer text-center">
+	Copyright © 2013 - 2017苏州智铸通信科技股份有限公司
+</div>

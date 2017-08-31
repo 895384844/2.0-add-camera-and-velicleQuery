@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" ng-app="routerApp">
+<head>
+  <meta charset="utf-8">
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+  <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+  <META HTTP-EQUIV="Expires" CONTENT="0"> 
+  <title>电子围栏系统</title>
+   <link rel="stylesheet" href="framework/bootstrap-3.0.0/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="css/ui-grid.css">
+  <link rel="stylesheet" type="text/css" href="css/angular.treeview.css">
+  <link rel="stylesheet" type="text/css" href="css/angucomplete-alt.css">
+  <link rel="stylesheet" type="text/css" href="css/timelistcontrol.css">
+  <link rel="stylesheet" type="text/css" href="css/bmap.css">
+  <link rel="stylesheet" type="text/css" href="css/datetimepicker.css">
+  <link rel="stylesheet" type="text/css" href="framework/dateTimePicker/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 框架文件 -->
+  <script type="text/javascript" src="framework/jquery.min.js"></script>
+  <script type="text/javascript" src="framework/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="framework/angular-1.5.8/angular.min.js"></script>
+  
+  <script type="text/javascript" src="framework/angular-1.5.8/angular-touch.js"></script>
+  
+  <script type="text/javascript" src="framework/moment.js"></script>
+  <script type="text/javascript" src="framework/moment-range.js"></script>
+  <script type="text/javascript" src="framework/locale/en-gb.js"></script>
+  <script type="text/javascript" src="framework/angular-ui-router.js"></script>
+  <script type="text/javascript" src="framework/angular-md5.js"></script>
+  <script type="text/javascript" src="framework/angular-1.5.8/angular-animate.min.js"></script>
+  <script type="text/javascript" src="framework/angular-1.5.8/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="framework/ui-bootstrap-tpls-2.3.1.min.js"></script>
+  <script type="text/javascript" src="framework/ui-grid.js"></script>
+  <script type="text/javascript" src="framework/angular-modal-service.js"></script>
+  <script type="text/javascript" src="framework/echarts/dist/echarts.js"></script>
+  <script type="text/javascript" src="framework/echarts/theme/macarons.js"></script>
+  <script type="text/javascript" src="framework/echarts/map/js/china.js"></script>
+  <script type="text/javascript" src="framework/angular-echarts3.js"></script>
+  <script type="text/javascript" src="framework/angular.treeview.js"></script>
+  <script type="text/javascript" src="framework/datetimepicker.js"></script>
+  <script type="text/javascript" src="framework/datetimepicker.templates.js"></script>
+  <script type="text/javascript" src="framework/dateTimeInput.js"></script>
+  <script type="text/javascript" src="framework/spin.min.js"></script>
+  <script type="text/javascript" src="framework/angular-spinner.js"></script>
+  <script type="text/javascript" src="framework/angucomplete-alt.js"></script>
+  <script type="text/javascript" src="framework/ng-file-upload/dist/ng-file-upload-all.js"></script>
+  <script type="text/javascript" src="framework/dateTimePicker/build/jquery.datetimepicker.full.js"></script>
+  
+  <!-- 项目文件 --> 
+  <script src="js/app.js"></script>
+  <script type="text/javascript" src="js/common/apiv2.0.min.js"></script>
+  <script type="text/javascript" src="js/common/baidu-map.js"></script>
+  <script type="text/javascript" src="js/common/httpServices.js"></script>
+  <script type="text/javascript" src="js/common/utilityServices.js"></script>
+  <script type="text/javascript" src="js/common/dateTimeSelector.js"></script>
+  <script type="text/javascript" src="js/common/mapServices.js"></script>
+  <script type="text/javascript" src="js/login/loginCtrl.js"></script>
+  <script type="text/javascript" src="js/findPwd/findPwdCtrl.js"></script>
+  <script type="text/javascript" src="js/main/mainCtrl.js"></script>
+  <script type="text/javascript" src="js/sidebar/sidebarCtrl.js"></script>
+  <script type="text/javascript" src="js/common/gridServices.js"></script>
+  <script type="text/javascript" src="js/userManage/userManageCtrl.js"></script>
+  <script type="text/javascript" src="js/userManage/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/home/homeCtrl.js"></script>
+  <script type="text/javascript" src="js/domain/domainCtrl.js"></script>
+  <script type="text/javascript" src="js/roleManage/roleManageCtrl.js"></script>
+  <script type="text/javascript" src="js/roleManage/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/logManage/logManageCtrl.js"></script>
+  <script type="text/javascript" src="js/warrantManage/warrantManageCtrl.js"></script>
+  <script type="text/javascript" src="js/warrantManage/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/systemSetting/safeSetCtrl.js"></script>
+  <script type="text/javascript" src="js/systemSetting/noticeSetCtrl.js"></script>
+  <script type="text/javascript" src="js/systemSetting/mesSetCtrl.js"></script>
+  <script type="text/javascript" src="js/systemSetting/mesTelCtrl.js"></script>
+  <script type="text/javascript" src="js/systemSetting/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/systemSetting/mapSetCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceManage/deviceManageCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceManage/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/planTask/planTaskCtrl.js"></script>
+  <script type="text/javascript" src="js/planTask/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceTask/deviceTaskCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceTask/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceView/mapCtrl.js"></script>
+  <script type="text/javascript" src="js/trajectory/trajectoryCtrl.js"></script>
+  <script type="text/javascript" src="js/trajectory/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/trafficAnalysis/trafficCtrl.js"></script>
+  <script type="text/javascript" src="js/collisionAnalysis/collisionCtrl.js"></script>
+  <script type="text/javascript" src="js/historyQuery/historyQueryCtrl.js"></script>
+  <script type="text/javascript" src="js/wifi/wifiCtrl.js"></script>
+  <script type="text/javascript" src="js/camera/cameraCtrl.js"></script>
+  <script type="text/javascript" src="js/camera/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/vehicleQuery/vehicleQueryCtrl.js"></script>
+  <script type="text/javascript" src="js/vehicleQuery/showPicCtrl.js"></script>
+  	
+  <!---------------------------------------------------------------------->
+  <script type="text/javascript" src="js/accompanyAnalysis/accompanyAnalysis.js"></script>   <!--新加伴随分析统计-->
+  <script type="text/javascript" src="js/accompanyAnalysis/modalCtrl.js"></script>            <!--新加伴随详情查询-->
+  <script type="text/javascript" src="js/attributionStatistics/attributionStatistics.js"></script>  <!--新加归属地统计-->
+  <!---------------------------------------------------------------------->
+  <script type="text/javascript" src="js/blackListAlarm/blackListAlarmCtrl.js"></script>
+  <script type="text/javascript" src="js/residentPopulation/residentPopulationCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceAlarmLog/deviceAlarmLogCtrl.js"></script>
+  <script type="text/javascript" src="js/sweepLog/sweepLogCtrl.js"></script>
+  <script type="text/javascript" src="js/noticeRecord/noticeRecordCtrl.js"></script>
+  <script type="text/javascript" src="js/personManage/personManageCtrl.js"></script>
+  <script type="text/javascript" src="js/blacklist/blacklistCtrl.js"></script>
+  <script type="text/javascript" src="js/targetAlarm/targetAlarmCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceAlarm/deviceAlarmCtrl.js"></script>
+  <script type="text/javascript" src="js/trafficAnalysis/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/personManage/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/collisionAnalysis/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/common/autoHeightDirective.js"></script>
+  <script type="text/javascript" src="js/targetAlarm/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceAlarm/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/blacklist/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/main/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/blackListAlarm/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/deviceAlarmLog/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/logManage/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/residentPopulation/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/historyQuery/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/sweepLog/modalCtrl.js"></script>
+  <script type="text/javascript" src="js/noticeRecord/modalCtrl.js"></script>
+</head>
+<body>
+  <div ui-view id="main-view"></div>
+</body>
+</html>

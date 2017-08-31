@@ -1,0 +1,15 @@
+<div class="frame">
+	<h2 class="title">系统设置</h2>
+    <nav class="navbar navbar-default" role="navigation">
+	    <ul class="nav navbar-nav">
+			<li><a ui-sref="main.page.safeSet" ng-init="activeButton = 'a'" ng-click="activeButton = 'a'" ng-class="{ 'active': activeButton === 'a' }">安全设置</a></li>
+			<li><a ui-sref="main.page.mesSet" ng-click="activeButton = 'b'" ng-class="{ 'active': activeButton === 'b' }">短信设备配置</a></li>
+			<li><a ui-sref="main.page.mesTelSet" ng-click="activeButton = 'c'" ng-class="{ 'active': activeButton === 'c' }">通知模版设置</a></li>
+			<li><a ui-sref="main.page.mapSet" ng-click="activeButton = 'd'" ng-class="{ 'active': activeButton === 'd' }">地图设置</a></li>
+			<li><a ui-sref="main.page.noticeSet" ng-click="activeButton = 'e'" ng-class="{ 'active': activeButton === 'e' }">通知设置</a></li>
+		</ul>
+	</nav>
+	<div class="setBox" ui-view>
+	    <div ui-view="setDefault"></div>
+	</div> 
+</div>

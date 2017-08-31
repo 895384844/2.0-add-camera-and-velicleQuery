@@ -1,0 +1,37 @@
+<div ng-controller="userManageCtrl" class="frame">
+	<h2 class="title">用户管理</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">用户名</span>
+			<input type="text" class="form-control" ng-model="user.account">
+		</div>
+		
+		<div class="input-group">
+			<span class="input-group-addon">姓名</span>
+			<input type="text" class="form-control" ng-model="user.name">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">选择性别</span>
+			<select class="form-control" ng-model="user.male">
+			    <option>全部</option>
+				<option>男</option>
+				<option>女</option> 
+			</select>
+		</div>
+		<div class="input-group">
+		    <button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div> 
+	<div class="btnBox" ng-controller="userManageModalCtrl">
+	    <a class="btnIcon btn-add" href ng-click="add()" uib-tooltip="添加"></a>
+	    <a class="btnIcon btn-edit" href ng-click="edit()" uib-tooltip="编辑"></a>
+	    <a class="btnIcon btn-delete" href ng-click="delete()" uib-tooltip="删除"></a>
+	    <a class="btnIcon btn-role" href ng-click="role()" uib-tooltip="编辑角色"></a>
+	    <a class="btnIcon btn-resetpsw" href ng-click="resetPsw()" uib-tooltip="重置密码"></a>
+	    <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a> 
+	    <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+	    <a class="btnIcon btn-unlock" href uib-tooltip="解锁" ng-click="unLock()"></a>
+	</div>
+</div>
+	

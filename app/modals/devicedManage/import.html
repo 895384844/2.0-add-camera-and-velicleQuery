@@ -1,0 +1,28 @@
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">批量导入</h4>
+			</div>
+			<div class="modal-body" style="min-height:100px;">
+				<div ng-show="!!errorMessage" class="alert alert-danger" style="height:35px;padding-top:5px;margin-top: 0px;margin-bottom: 5px; ">
+				   {{errorMessage}}
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+	                    <input type="file" ng-model="deviceFile" ng-show="false" ngf-select ngf-change="onFileSelect($file)">
+				        <button id="dialog-btn-primary" type="button" class="btn btn-primary" onclick="$('input[type=file]').click();">
+				    		<i ng-show="isWaiting" class="fg-loginform-submit__waiting icon-waiting"></i>
+				    		<i ng-show="!isWaiting" class="icon-folder-open"></i>选择文件
+				    	</button>
+			    	</div>
+			    	<div class="col-md-8" style="height: 34px; border-color: #FFFFFF #FFFFFF #bce8f1 #FFFFFF;border-style: solid; border-width: 2px"><h5>{{fileName}}</h5></div>
+                </div>
+			</div>
+			<div class="modal-footer">
+                <button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+		</div>
+	</div>
+</div>

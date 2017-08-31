@@ -1,0 +1,54 @@
+<div  class="frame" ng-controller="noticeRecordCtrl">
+	<h2 class="title">通知记录</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">接收地址</span>
+			<input type="text" class="form-control" ng-model="notice.phone">
+		</div>
+		<!--<div class="input-group">
+			<span class="input-group-addon">短信内容</span>
+			<input type="text" class="form-control" ng-model="notice.content">
+		</div>-->
+		<div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">时间范围</span>
+                        <input type="text" class="form-control" data-ng-model="notice.startTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="notice.startTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+        	<div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">至</span>
+                        <input type="text" class="form-control" data-ng-model="notice.endTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="notice.endTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2', renderOn: 'start-date-changed' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+    <div class="btnBox">
+        <!--<a class="btnIcon btn-refresh" href uib-tooltip="刷新" ng-click="search()"></a>-->
+        <a class="btnIcon btn-export" href uib-tooltip="导出" ng-click="export()"></a>
+        <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div ng-controller="mapCtrl">
+	<h2 class="title">地理视图</h2>
+	
+   <baidu-map  options="mapOptions" online="isOnline" ak="" class="map"></baidu-map>
+
+	<div id="devicelist-dropdown" class="col-sm-4 searchBox">
+ 		<input type="text" class="form-control input-lg dropdown-toggle searchBg" data-toggle="dropdown" ng-change="onChangeText()" ng-model="device.name"> 
+        <ul id="devicelist-dropdown-menu" class="dropdown-menu pull-right" style="max-height:350px;overflow: auto; word-wrap:break-word; padding-right: 20px;">
+			<div
+				class="tree"
+			    data-angular-treeview="true"
+				data-tree-id="mytree"
+				data-tree-model="roleList"
+				data-node-id="sid"
+				data-node-label="sname"
+				data-node-children="children">
+			</div>
+		</ul>
+	</div>
+	<a class="btnIcon btn-location" href ng-click='setCenter()' uib-tooltip="定位" style="position: absolute; left: 40px; bottom: 60px; padding: 3px; width: 24px; height: 24px;"></a>
+	
+	<div class="deviceInfoBox" style="width: 360px;" ng-show="showDeviceInfo">
+		<ul id="myTab" class="nav nav-tabs" >
+			<li ng-class="{'active':$index==0}"  ng-repeat="device in devices">
+				<a data-target="#device_{{device.id}}"  href="javascript:void(0)" data-toggle="tab">
+					 设备{{$index+1}}
+				</a>
+			</li>
+			<a class="close" href="javascript:void(0)" ng-click="dissmissDeviceInfo()" style="position:relative;top:0px;right:15px">×</a>
+		</ul>
+		<div id="myTabContent" class="tab-content" >
+			<div class="tab-pane" ng-class="{'active':$index==0}" ng-repeat="device in devices" id="device_{{device.id}}">
+				<div class="deviceInfo">
+					<strong>设备名称：</strong>
+					<span >{{device.name}}</span>
+				</div>
+				<div class="deviceInfo">
+					<strong>设备编号：</strong>
+					<span >{{device.number}}</span>
+				</div>
+				<div class="deviceInfo">
+					<strong>设备类型：</strong>
+					<span>{{device.type}}</span>
+				</div>
+				<div class="deviceInfo">
+					<strong>上网卡卡号：</strong>
+					<span >{{device.netCard}}</span>
+				</div>
+				<!-- <div class="deviceInfo">
+					<strong>经度：</strong>
+					<span >{{device.longitude}}</span>
+				</div>
+				<div class="deviceInfo">
+					<strong>纬度：</strong>
+					<span >{{device.latitude}}</span>
+				</div> -->
+				<div class="deviceInfo">
+					<strong>设备描述：</strong>
+					<span>{{device.desc}}</span>
+				</div>
+				<div class="deviceInfo" style="border:none;padding:5px 0">
+					<select class="form-control" ng-change="addAction(actionType,device)" ng-model="actionType" ng-options="actiont.value as actiont.name for actiont in actionTypes">
+					</select>
+				</div>
+			</div>
+			
+		</div>
+	  </div>
+	</div>
+	<span us-spinner spinner-key="spinner-1"></span>
+</div>

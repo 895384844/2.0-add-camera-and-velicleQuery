@@ -1,0 +1,32 @@
+<div class="frame" ng-controller="collisionCtrl">
+	<h2 class="title">碰撞分析</h2>
+	<div class="form form-inline" id="form" height-bind=".grid"> 
+		<!--<div class="input-group">
+			<span class="input-group-addon">选择类型</span>
+			<div class="form-control">
+			    <input type="radio" name="type" checked> IMSI
+			    <input type="radio" name="type"> IMEI
+			</div>
+		</div>-->
+        <div class="input-group">
+            <button class="btn btn-primary"  ng-click="showCondition()">添加碰撞点</button>&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-primary" ng-click="search()" ng-disabled="btn.status">查询</button>
+        </div>
+        <div class="condition-group">
+            <div class="condition" ng-repeat="conditionItem in conditionArray">
+                <span class="glyphicon glyphicon-remove text-primary" ng-click="removeCondition($index)"></span>
+                <div class="textOverflow" title={{conditionItem.groupName}}>设备:{{conditionItem.groupName}}</div>
+                <div>开始:{{conditionItem.startTime | date:'yyyy-MM-dd HH:mm'}} </div>
+                <div>结束:{{conditionItem.endTime | date:'yyyy-MM-dd HH:mm'}}</div>
+            </div>
+        </div>      
+	</div>
+	<!--<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize class="grid" auto-height></div>--> 
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+    <div class="btnBox">
+        <!--<a class="btnIcon btn-refresh" href uib-tooltip="刷新" ng-click="search()"></a>-->
+        <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a> 
+        <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+    </div>
+    <span us-spinner spinner-key="spinner-1" class="loadingAnimate"></span>
+</div>

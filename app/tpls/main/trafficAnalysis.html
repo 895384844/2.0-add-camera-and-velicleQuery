@@ -1,0 +1,65 @@
+<div  class="frame" ng-controller="trafficCtrl">
+	<h2 class="title">统计流量分析</h2>
+	<form class="form form-inline" name="form">
+		<div class="input-group">
+			<span class="input-group-addon">组名称(必填)</span>
+			<select class="form-control pd-right" ng-model="select.groupId" required>
+				<option value="">请选择</option>
+			    <option ng-repeat="group in groupArray" value="{{group.groupId}}">{{group.groupName}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon" style="padding:0 5px;">时间间隔(必填)</span>
+			<select class="form-control" ng-model="select.time" required>
+			    <option value="600">10分钟</option>
+			    <option value="1800">半小时</option>
+			    <option value="3600">一小时</option>
+			    <option value="86400">一天</option>
+			    <option value="2592000">一个月（30天）</option>
+			</select>
+		</div>
+		<div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="padding:0 5px;">开始时间(必填)</span>
+                        <input type="text" class="form-control" data-ng-model="select.startTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm" required>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="select.startTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+        	<div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="padding:0 5px;">结束时间(必填)</span>
+                        <input type="text" class="form-control" data-ng-model="select.endTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm" required>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="select.endTime" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2',renderOn: 'start-date-changed' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group">
+			<button class="btn btn-primary" ng-click="search()" ng-disabled="!form.$valid">查询</button>
+            <button class="btn btn-primary" ng-click="showChar()" ng-disabled="btn.status">图表</button>
+		</div>
+	</form>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+    <div class="btnBox">
+        <!--<a class="btnIcon btn-refresh" href uib-tooltip="刷新" ng-click="search()"></a>-->
+        <a class="btnIcon btn-export" href uib-tooltip="导出" ng-click="export()"></a>
+        <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+    </div>
+    <span us-spinner spinner-key="spinner-1" class="loadingAnimate"></span>
+</div>

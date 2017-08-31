@@ -1,0 +1,75 @@
+<div ng-controller="deviceManageCtrl" class="frame">
+	<h2 class="title">设备管理</h2>
+	<div class="form form-inline"> 
+		<div class="input-group">
+			<span class="input-group-addon">设备名称</span>
+			<input type="text" class="form-control" ng-model="device.name">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">设备编号</span>
+			<input type="text" class="form-control" ng-model="device.number">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">设备IP</span>
+			<input type="text" class="form-control" ng-model="device.ip">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">上网卡号码</span>
+			<input type="text" class="form-control" ng-model="device.cardNumber">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">设备地址</span>
+			<input type="text" class="form-control" ng-model="device.address">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">设备类型</span>
+			<select class="form-control" ng-model="device.type">
+			    <option value="">全部</option>
+			    <option  ng-repeat="devicedType in devicedTypeList" value="{{devicedType.id}}">{{devicedType.name}}</option>
+			</select>
+		</div>
+		<div class="input-group data">
+            <span class="input-group-addon">管理域</span>
+            <input type="text" class="form-control meBg dropdown-toggle" data-toggle="dropdown" ng-model="device.domain">
+            <ul class="dropdown-menu pull-right treeBox">
+				<div
+					class="tree"
+					data-angular-treeview="true"
+					data-tree-id="mytree"
+					data-tree-model="roleList"
+					data-node-id="sid"
+					data-node-label="sname"
+					data-node-children="children" >
+				</div>
+			</ul>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">组编号</span>
+			<!--<input type="number" class="form-control" ng-model="device.groupId">-->
+			<select class="form-control" ng-model="device.groupId">
+			    <option value="">全部</option>
+			    <option ng-repeat="group in groupArray" value="{{group.groupId}}">{{group.groupName}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button> 
+		</div>
+	</div>
+
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+	
+	<div class="btnBox" ng-controller="devicedModalCtrl">
+	    <a class="btnIcon btn-add" href ng-click="add()" uib-tooltip="添加"></a>
+	    <a class="btnIcon btn-import" href ng-click="import()" uib-tooltip="批量导入"></a>
+	    <a class="btnIcon btn-delete" href ng-click="delete()" uib-tooltip="删除"></a>
+	    <a class="btnIcon btn-start" href ng-click="noWifiLte(0,'startCaptureCtrl')" uib-tooltip="启动捕获程序"></a>
+	    <a class="btnIcon btn-restart" href ng-click="noWifiLte(2,'restartCaptureCtrl')" uib-tooltip="重启捕获程序"></a>
+	    <a class="btnIcon btn-close" href ng-click="noWifiLte(1,'closeCaptureCtrl')" uib-tooltip="关闭捕获程序"></a>
+	    <a class="btnIcon btn-restart2" href ng-click="noWifi(3,'restartSystemCtrl')" uib-tooltip="重启设备系统"></a>
+	    <a class="btnIcon btn-clock" href ng-click="noWifi(8,'sameClockCtrl')" uib-tooltip="同步设备时钟"></a>
+	    <a class="btnIcon btn-scan" href ng-click="noWifiLte(4,'catchPointCtrl')" uib-tooltip="捕获近设备频点"></a>
+	    <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a>
+	    <a class="btnIcon btn-device-download" href uib-tooltip="设备批量导入模板下载" ng-click="device_downLoad()"></a>
+	</div>
+	<span us-spinner spinner-key="spinner-1"></span>
+</div>

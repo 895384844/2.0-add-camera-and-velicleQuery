@@ -1,0 +1,63 @@
+<div class="frame" ng-controller="trajectoryCtrl">
+	<h2 class="title">终端轨迹跟踪</h2>
+	<form class="form form-inline" role="form" name="form">
+		<div class="input-group">
+			<span class="input-group-addon">选择类型</span>
+			<div class="form-control">			    
+			    <input type="radio"  name="type" value="imsi" ng-model="select.type" ng-checked="true"  required> IMSI
+                <input type="radio"  name="type" value="imei" ng-model="select.type"> IMEI
+			</div>
+		</div>
+		<div class="input-group import">
+			<input type="text" class="form-control" ng-model="select.value" name="value" required>
+			<span class="input-group-addon">*必填</i></span>
+		</div>
+		<div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">开始时间</span>
+                        <input type="text" class="form-control" data-ng-model="select.startTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="select.startTime"
+                        data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }"
+                        data-on-set-time="startDateOnSetTime()"
+                        data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+        	<div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">结束时间</span>
+                        <input type="text" class="form-control" data-ng-model="select.endTime"
+                                   data-date-time-input="YYYY-MM-DD HH:mm:ss">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="select.endTime"
+                        data-datetimepicker-config="{ dropdownSelector: '#dropdown2', renderOn: 'start-date-changed' }"
+                        data-on-set-time="endDateOnSetTime()"
+                        data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+		<div class="input-group">
+			<button class="btn btn-primary" ng-click="search()" ng-disabled="!form.$valid">查询</button>
+			<button class="btn btn-info" ng-click="showMap()">轨迹</button>
+		</div>
+	</form>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+	<div class="btnBox">
+	    <!--<a class="btnIcon btn-refresh" href uib-tooltip="刷新" ng-click="search()"></a>-->
+	    <a class="btnIcon btn-export" href uib-tooltip="导出" ng-click="export()"></a>
+	    <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+	</div>
+	<span us-spinner spinner-key="spinner-1" class="loadingAnimate"></span>
+</div>

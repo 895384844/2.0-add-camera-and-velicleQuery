@@ -1,0 +1,28 @@
+<div ng-controller="cameraCtrl" class="frame">
+	<h2 class="title">摄像头管理</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">设备地址</span>
+			<select class="form-control" ng-model="camera.name" style="padding-right: 16px;">
+				<option value="">全部</option>
+				<option class="hide-txt" ng-repeat="camera in cameraList" value="{{camera}}">{{camera}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">设备IP</span>
+			<input type="text" class="form-control" ng-model="camera.ip">
+		</div>	
+		<div class="input-group">
+		    <button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div> 
+	<div class="btnBox" ng-controller="cameraModalCtrl">
+	    <a class="btnIcon btn-add" href ng-click="add()" uib-tooltip="添加"></a>
+	    <a class="btnIcon btn-edit" href ng-click="edit()" uib-tooltip="编辑"></a>
+	    <a class="btnIcon btn-delete" href ng-click="delete()" uib-tooltip="删除"></a>
+	    <a class="btnIcon btn-import" href ng-click="import()" uib-tooltip="批量导入"></a>
+	    <a class="btnIcon btn-device-download" href uib-tooltip="批量导入模板下载" ng-click="camera_downLoad()"></a>
+	</div>
+</div>
+	

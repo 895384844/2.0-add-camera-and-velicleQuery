@@ -1,0 +1,25 @@
+{
+    "rows" : [
+	    {
+	    "name": "MA Qingyu",
+	    "gender": "男",
+	    "identity": "设备管理人员",
+	    "phone": "18626290527",
+	    "email": ""
+	    },
+	    {
+	    "name": "张三",
+	    "gender": "男",
+	    "identity": "公安干警",
+	    "phone": "18626290527",
+	    "email": ""
+	    },
+	    {
+	    "name": "李四",
+	    "gender": "男",
+	    "identity": "公安干警",
+	    "phone": "18626290527",
+	    "email": ""
+	    }
+    ]
+}

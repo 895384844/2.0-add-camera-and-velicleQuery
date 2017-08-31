@@ -1,0 +1,39 @@
+<div ng-controller="mesTelCtrl">
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">模板名称</span>
+			<input type="text" class="form-control" ng-model="tel.name">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">模板内容</span>
+			<input type="text" class="form-control" ng-model="tel.desc">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">启用状态</span>
+			<select type="tel" class="form-control" ng-model="tel.used">
+			    <option value="">全部</option>
+				<option value="1">启用</option>
+				<option value="0">未启用</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">模板类型</span>
+			<select class="form-control" ng-model="tel.type">
+			    <option value="">全部</option>
+			    <option value="0">目标告警模板</option>
+				<option value="1">设备告警模板</option>
+				<!-- <option value="2">异地告警模板</option> -->
+			</select>
+		</div>
+		<div class="input-group">
+		    <button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height container=".setBox" offset="110"></div>
+	<div class="btnBox" ng-controller="mesTelModalCtrl">
+	    <a class="btnIcon btn-add" href ng-click="add()" uib-tooltip="添加"></a>
+	    <a class="btnIcon btn-edit" href ng-click="edit()" uib-tooltip="编辑"></a>
+	    <a class="btnIcon btn-delete" href ng-click="delete()" uib-tooltip="删除"></a>
+	    <a class="btnIcon btn-yes" href ng-click="use()" uib-tooltip="启用"></a>
+	</div>
+</div>

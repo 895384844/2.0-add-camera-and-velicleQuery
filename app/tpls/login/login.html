@@ -1,0 +1,29 @@
+<div id="login" ng-controller="loginCtrl">
+    <div class="col-lg-4 col-lg-offset-4">
+        <div class="text-center">
+            <img src="images/logoBg.png">
+            <h1>电子围栏系统</h1>
+        </div>
+        <form class="form-horizontal" role="form" name="form">
+            <div class="form-group">
+                <div class="col-lg-12">
+                   <input type="text" name="name" class="form-control input-lg usernameBg" ng-model="name" required >
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12">
+                   <input type="password" name="psw" class="form-control input-lg pswBg" ng-model="psw" required >
+                </div>
+            </div>
+            <div class="form-group">
+            	<div class="col-lg-6">
+           		    <a type="button" class="btn btn-default btn-lg col-lg-12" ui-sref="findPwd">忘记密码</a>
+           		</div>
+           		<div class="col-lg-6">
+            		<button type="submit" ng-disabled="!form.$valid" ng-click="login()" class="btn btn-primary btn-lg col-lg-12" >登 录</button>
+            	</div>
+            </div>
+        </form>
+    </div>
+    <div class="foot text-center">Copyright © 2013 - 2016 苏州智铸通信科技股份有限公司</div>
+</div>

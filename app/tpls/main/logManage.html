@@ -1,0 +1,67 @@
+<div ng-controller="logManageCtrl" class="frame">
+	<h2 class="title">日志管理</h2> 
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">操作人</span>
+			<input type="text" class="form-control" ng-model="log.name">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">操作模块</span>
+			<select class="form-control" ng-model="log.moudleSelect">
+			    <option value="">全部</option>
+			    <option ng-repeat="moudle in moudleArray" value="{{moudle.code}}">{{moudle.name}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">操作动作</span>
+			<select class="form-control" ng-model="log.actionSelect">
+			    <option value="">全部</option>
+			    <option ng-repeat="action in actionArray" value="{{action.code}}">{{action.name}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">IP地址</span>
+			<input type="text" class="form-control" ng-model="log.ip">
+		</div>
+		<div class="input-group data">
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">开始时间</span>
+                        <input type="text" class="form-control" data-ng-model="data.dateDropDownInputStart"
+                                   data-date-time-input="YYYY-MM-DD HH:mm">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="data.dateDropDownInputStart" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1', renderOn: 'end-date-changed' }" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group data">
+        	<div class="dropdown">
+                <span class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+                    <div class="input-group">
+                        <span class="input-group-addon">结束时间</span>
+                        <input type="text" class="form-control" data-ng-model="data.dateDropDownInputEnd"
+                                   data-date-time-input="YYYY-MM-DD HH:mm">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="data.dateDropDownInputEnd" 
+                    data-datetimepicker-config="{ dropdownSelector: '#dropdown2', renderOn: 'start-date-changed' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+		<div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+	<div class="btnBox">
+	    <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a>
+	    <a class="btnIcon btn-download" href ng-click="downLoad()" uib-tooltip="下载"></a>
+	</div>
+</div> 

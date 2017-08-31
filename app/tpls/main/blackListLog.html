@@ -1,0 +1,38 @@
+<div  class="frame" ng-controller="blackListAlarmCtrl">
+	<h2 class="title">黑名单告警</h2>
+	<div class="form form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">组名称</span>
+			<select class="form-control pd-right" ng-model="blackList.groupId">
+				<option value="">请选择</option>
+			    <option ng-repeat="group in groupArray" value="{{group.groupId}}">{{group.groupName}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">IMEI</span>
+			<input type="text" class="form-control"  minlength="15" maxlength="15"  ng-model="blackList.imei">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">IMSI</span>
+			<input type="text"  class="form-control" minlength="15" maxlength="15" ng-model="blackList.imsi">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">处理状态</span>
+			<select class="form-control" ng-model="blackList.statue">
+			    <option value="">全部</option>
+			    <option value="1">已处理</option>
+			    <option value="0">未处理</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<button class="btn btn-primary" ng-click="search()">查询</button>
+		</div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  class="grid" auto-height></div>
+	<div class="btnBox">
+	    <a class="btnIcon btn-opinion" href uib-tooltip="添加意见" ng-click="addComment()"></a>
+	    <!--<a class="btnIcon btn-refresh" href uib-tooltip="刷新"></a>-->
+	    <a class="btnIcon btn-export" href ng-click="export()" uib-tooltip="导出"></a>
+	    <a class="btnIcon btn-download" href uib-tooltip="下载" ng-click="downLoad()"></a>
+	</div>
+</div>
